@@ -33,7 +33,7 @@ const render = () =>{
     }
     else {return category.drinks.map(category => {
 
-        let link = `/categories/${searchCategory.category}/${category.idDrink}`
+        let link = `/categories/${category.strCategory}/${category.idDrink}`
         
         return <Col key={category.idDrink}><Card >
             <Card.Img variant="top" src={category.strDrinkThumb}/>
