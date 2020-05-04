@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+  background-color: burlywood;
+  flex: auto;
+  text-align: center;
+  flex-direction: column;
+  font-size: 30px;
+}
+
+.homepage {
+  text-align: center;
+  background-color: cornflowerblue;
+  font-size: 20px;
+}
+
+.aboutpage {
+  text-align: center;
+  background-color: rgb(174, 174, 238);
+  font-size: 20px;
+}
+
+.discovermoviespage {
+  text-align: center;
+  background-color: rgb(140, 150, 170);
+  font-size: 20px;
+}
+
+.movie{
+  display: inline-block;
+}
