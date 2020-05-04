@@ -25,7 +25,7 @@ const render = () =>{
     }
     else {return categories.drinks.map(category => {
         let categoryname = encodeURIComponent(category.strCategory)
-        return <ListGroup.Item action variant="success"><Link to={`/categories/${categoryname}`} >{category.strCategory}</Link></ListGroup.Item>})}
+        return <ListGroup.Item key={categoryname} action variant="success"><Link to={`/categories/${categoryname}`} >{category.strCategory}</Link></ListGroup.Item>})}
 
 }
 

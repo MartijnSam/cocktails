@@ -35,7 +35,7 @@ const render = () =>{
 
         let link = `/categories/${searchCategory.category}/${category.idDrink}`
         
-        return <Col><Card>
+        return <Col key={category.idDrink}><Card >
             <Card.Img variant="top" src={category.strDrinkThumb}/>
             <Card.Body>
                 <Card.Title>{category.strDrink}</Card.Title>
@@ -48,15 +48,14 @@ const render = () =>{
 const categoryName = decodeURIComponent(searchCategory.category)
 
     return (
-      <div className="category">
+      <div className="category"><p>
         Here are the cocktails in the category {categoryName}:
+        </p>
         <Container>
         <Row xs={2} md={4} lg={6}>
-        
         {render()}
-        
-  </Row>
-</Container>
+        </Row>
+        </Container>
         
       </div>
     );
