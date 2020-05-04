@@ -1,8 +1,7 @@
 import React, { useEffect, useState} from "react";
 import Axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
-import CardGroup from 'react-bootstrap/CardGroup'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
