@@ -20,25 +20,24 @@ const [drink, setDrink]= useState(false);
 const searchDrink = useParams()
 const searchCategory = searchDrink.category
 
-useEffect(() => {async function getDrink(){
-    console.log(`getting the cocktail:`, searchDrink.cocktail)
-    const queryParam = encodeURIComponent(searchDrink.cocktail)
-    const data = await Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${queryParam}`);
+useEffect(() => {async function getDrink(id){
+    console.log(`getting the cocktail:`, id)
+    const data = await Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
     console.log(`here is the cocktail data:`, data.data);
-    setDrink(data.data)
-}getDrink()}, [searchDrink])
+    setDrink(data.data.drinks[0])
+}getDrink(searchDrink.cocktail)}, [searchDrink])
 
 const drinkName = () =>{
     if (drink === false){
         return <div>"Getting the drink"<Spinner animation="border"></Spinner></div>
     }
-    else return <h1>{drink.drinks[0].strDrink}</h1>}
+    else return <h1>{drink.strDrink}</h1>}
 
 const drinkThumb = () =>{
         if (drink === false){
             return <div>"Getting the drink"<Spinner animation="border"></Spinner></div>
         }
-        else return <Image src={drink.drinks[0].strDrinkThumb} rounded />
+        else return <Image src={drink.strDrinkThumb} rounded />
   
 
 }
@@ -48,7 +47,7 @@ const drinkAlco = () =>{
         return <div>"Getting the drink"<Spinner animation="border"></Spinner></div>
     }
     else return <div><p><Badge pill variant="success">
-    {drink.drinks[0].strAlcoholic}</Badge></p><p>Glass: {drink.drinks[0].strGlass}</p></div>
+    {drink.strAlcoholic}</Badge></p><p>Glass: {drink.strGlass}</p></div>
 
 
 }
@@ -58,7 +57,7 @@ const drinkInstr = () =>{
     if (drink === false){
         return <div>"Getting the drink"<Spinner animation="border"></Spinner></div>
     }
-    else return <div>{drink.drinks[0].strInstructions}</div>}
+    else return <div>{drink.strInstructions}</div>}
 
     
 const drinkIngr = () =>{
@@ -66,23 +65,23 @@ const drinkIngr = () =>{
     if (drink === false){
         return <div>"Getting the drink"<Spinner animation="border"></Spinner></div>
     }
-    if (drink.drinks[0].strIngredient1 !== null){
+    if (drink.strIngredient1 !== null){
         return <tbody>
-            <tr><td>{drink.drinks[0].strIngredient1}</td><td>{drink.drinks[0].strMeasure1}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient2}</td><td>{drink.drinks[0].strMeasure2}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient3}</td><td>{drink.drinks[0].strMeasure3}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient4}</td><td>{drink.drinks[0].strMeasure4}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient5}</td><td>{drink.drinks[0].strMeasure5}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient6}</td><td>{drink.drinks[0].strMeasure6}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient7}</td><td>{drink.drinks[0].strMeasure7}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient8}</td><td>{drink.drinks[0].strMeasure8}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient9}</td><td>{drink.drinks[0].strMeasure9}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient10}</td><td>{drink.drinks[0].strMeasure10}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient11}</td><td>{drink.drinks[0].strMeasure11}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient12}</td><td>{drink.drinks[0].strMeasure12}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient13}</td><td>{drink.drinks[0].strMeasure13}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient14}</td><td>{drink.drinks[0].strMeasure14}</td></tr>
-            <tr><td>{drink.drinks[0].strIngredient15}</td><td>{drink.drinks[0].strMeasure15}</td></tr>           
+            <tr><td>{drink.strIngredient1}</td><td>{drink.strMeasure1}</td></tr>
+            <tr><td>{drink.strIngredient2}</td><td>{drink.strMeasure2}</td></tr>
+            <tr><td>{drink.strIngredient3}</td><td>{drink.strMeasure3}</td></tr>
+            <tr><td>{drink.strIngredient4}</td><td>{drink.strMeasure4}</td></tr>
+            <tr><td>{drink.strIngredient5}</td><td>{drink.strMeasure5}</td></tr>
+            <tr><td>{drink.strIngredient6}</td><td>{drink.strMeasure6}</td></tr>
+            <tr><td>{drink.strIngredient7}</td><td>{drink.strMeasure7}</td></tr>
+            <tr><td>{drink.strIngredient8}</td><td>{drink.strMeasure8}</td></tr>
+            <tr><td>{drink.strIngredient9}</td><td>{drink.strMeasure9}</td></tr>
+            <tr><td>{drink.strIngredient10}</td><td>{drink.strMeasure10}</td></tr>
+            <tr><td>{drink.strIngredient11}</td><td>{drink.strMeasure11}</td></tr>
+            <tr><td>{drink.strIngredient12}</td><td>{drink.strMeasure12}</td></tr>
+            <tr><td>{drink.strIngredient13}</td><td>{drink.strMeasure13}</td></tr>
+            <tr><td>{drink.strIngredient14}</td><td>{drink.strMeasure14}</td></tr>
+            <tr><td>{drink.strIngredient15}</td><td>{drink.strMeasure15}</td></tr>           
         </tbody>
     }}             
            

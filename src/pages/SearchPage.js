@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
 import Axios from "axios";
-import { useParams, Link} from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
@@ -39,7 +39,11 @@ const render = () =>{
         <Card.Body>
             <Card.Title>{drink.strDrink}</Card.Title>
         </Card.Body>
-        <Card.Footer><Button href={`/categories/${categoryname}/${drink.idDrink}`} variant="outline-success">More info</Button></Card.Footer>
+        <Card.Footer>
+            <Link to={`/categories/${categoryname}/${drink.idDrink}`}>
+            <Button variant="outline-success">More info
+            </Button></Link>
+            </Card.Footer>
     </Card></Col>
     
         

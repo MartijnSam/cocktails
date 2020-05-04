@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
 import Axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -42,7 +42,11 @@ const render = () =>{
             <Card.Body>
                 <Card.Title>{category.strDrink}</Card.Title>
             </Card.Body>
-            <Card.Footer><Button href={link} variant="outline-success">More info</Button></Card.Footer>
+            <Card.Footer>
+                <Link to={link}>
+                <Button variant="outline-success">More info</Button>
+                </Link>
+                </Card.Footer>
         </Card></Col>})}
 
 }
