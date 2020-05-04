@@ -24,6 +24,8 @@ useEffect(() => {async function getCategory(){
     setCategory(data.data)
 }getCategory()}, [searchCategory])
 
+let linkcategory = encodeURIComponent(searchCategory.category)
+
 const render = () =>{
     if (category === false){
         return "Getting the category"
@@ -33,7 +35,7 @@ const render = () =>{
     }
     else {return category.drinks.map(category => {
 
-        let link = `/categories/${category.strCategory}/${category.idDrink}`
+        let link = `/categories/${linkcategory}/${category.idDrink}`
         
         return <Col key={category.idDrink}><Card >
             <Card.Img variant="top" src={category.strDrinkThumb}/>
