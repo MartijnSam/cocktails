@@ -1,6 +1,12 @@
 import React, { useEffect, useState} from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import ListGroup from 'react-bootstrap/ListGroup';
+import TabContainer from 'react-bootstrap/TabContainer';
+import Row from 'react-bootstrap/Row';
+import Col from "react-bootstrap/Col";
+import Tab from 'react-bootstrap/Tab';
+import Category from "./Category"
  
 
 export default function Categories() {
@@ -19,19 +25,34 @@ const render = () =>{
         return "Getting the categories"
     }
     else {return categories.drinks.map(category => {
-        let removeDash = category.strCategory.split(' /').join('')
-        let categoryname = removeDash.split(' ').join('_')
-        return <li><Link to={`/categories/${categoryname}`} >{category.strCategory}</Link></li>})}
+        let categoryname = encodeURIComponent(category.strCategory)
+        return <ListGroup.Item action variant="success"><Link to={`/categories/${categoryname}`} >{category.strCategory}</Link></ListGroup.Item>})}
 
 }
 
 
+
+
     return (
-      <div className="categories">
+      <TabContainer id="list-group-tabs-example" defaultActiveKey="first">
+        <Row>
+            <Col sm={4}>
         Here are the cocktail categories:
-        <ul>
+        <ListGroup>
         {render()}
-        </ul>
-      </div>
+        </ListGroup>
+        </Col>
+        <Col sm={8}>
+      <Tab.Content>
+        <Tab.Pane eventKey="#link1">
+        
+        </Tab.Pane>
+        <Tab.Pane eventKey="#link2">
+        
+        </Tab.Pane>
+      </Tab.Content>
+      </Col>
+        </Row>
+    </TabContainer>
     );
   }
