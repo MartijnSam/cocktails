@@ -18,7 +18,7 @@ const navigateToSearch = () => {
 
     return (
       <NavBar bg="light" expand="lg">
-        <NavBar.Brand href="#home">Cocktails!!!</NavBar.Brand>
+        <NavBar.Brand href="/">Cocktails!!!</NavBar.Brand>
         <NavBar.Toggle aria-controls="basic-navbar-nav" />
         <NavBar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
