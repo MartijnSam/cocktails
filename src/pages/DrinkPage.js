@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
 import Axios from "axios";
-import { useParams} from "react-router-dom";
+import { useParams, Link} from "react-router-dom";
 import Image from 'react-bootstrap/Image'
 import Spinner from 'react-bootstrap/Spinner'
 import Tab from 'react-bootstrap/Tab'
@@ -128,7 +128,8 @@ let linkCategory = `/categories/${searchCategory}`
                 </Table>
                 </Tab.Pane>
                 <Tab.Pane eventKey="third"><p>
-                <Button href={linkCategory} variant="outline-success">{categoryName}</Button>
+                    <Link to={linkCategory}>
+                <Button variant="outline-success">{categoryName}</Button></Link>
                 </p><p>{drinkAlco()}</p>
                 </Tab.Pane>
                 </Tab.Content>
