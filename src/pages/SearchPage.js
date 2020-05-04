@@ -1,6 +1,11 @@
 import React, { useEffect, useState} from "react";
 import Axios from "axios";
 import { useParams, Link} from "react-router-dom";
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
  
 
 export default function DrinkPage() {
@@ -29,7 +34,14 @@ const render = () =>{
     else {return search.drinks.map(drink => {
         let categoryname = encodeURIComponent(drink.strCategory)
         
-        return  <li><Link to={`/categories/${categoryname}/${drink.idDrink}`} >{drink.strDrink}</Link></li>
+        return  <Col key={drink.idDrink}><Card >
+        <Card.Img variant="top" src={drink.strDrinkThumb}/>
+        <Card.Body>
+            <Card.Title>{drink.strDrink}</Card.Title>
+        </Card.Body>
+        <Card.Footer><Button href={`/categories/${categoryname}/${drink.idDrink}`} variant="outline-success">More info</Button></Card.Footer>
+    </Card></Col>
+    
         
         
 
@@ -44,7 +56,11 @@ const render = () =>{
     return (
       <div className="searchlist">
         You've searched for "{searchedFor}", here are the results:
-        <p>{render()}</p>
+        <Container>
+        <Row xs={2} md={4} lg={6}>
+        {render()}
+        </Row>
+        </Container>
         
         
       </div>

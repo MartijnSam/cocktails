@@ -21,11 +21,11 @@ function App() {
       <BrowserRouter>
         <Navigation />
         <Switch>
-          <Route path="/categories/:category/:cocktail" component={DrinkPage} />
-          <Route path="/categories/:category" component={Category} />
-          <Route path="/categories" component={Categories} />
-          <Route path="/about" component={AboutPage} />
           <Route path="/" exact={true} component={HomePage} />
+          <Route path="/categories" exact={true} component={Categories} />
+          <Route path="/about" exact={true} component={AboutPage} />
+          <Route path="/categories/:category" exact={true} component={Category} />
+          <Route path="/categories/:category/:cocktail?" component={DrinkPage} />
           <Route path="/search/:searchtext" component={SearchPage} />
         </Switch>
       </BrowserRouter>
