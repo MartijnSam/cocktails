@@ -4,7 +4,7 @@ export default function AboutPage() {
     React.createRef(AboutPage)
     return (
       <div className="aboutpage">
-        hello aboutpage
+        Hello there, this is a practice app. You can look up some stuff about cocktails :)
       </div>
     );
   }
