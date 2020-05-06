@@ -37,7 +37,7 @@ const drinkThumb = () =>{
         if (drink === false){
             return <div>"Getting the drink"<Spinner animation="border"></Spinner></div>
         }
-        else return <Image src={drink.strDrinkThumb} rounded />
+        else return <Image src={drink.strDrinkThumb} fluid />
   
 
 }
@@ -134,7 +134,7 @@ let linkCategory = `/categories/${searchCategory}`
                 </Tab.Pane>
                 </Tab.Content>
                 </Col>
-                <Col sm={3}>{drinkThumb()}</Col>
+                <Col sm={2}>{drinkThumb()}</Col>
                 </Row>
                 
                 
